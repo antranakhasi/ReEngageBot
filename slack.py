@@ -40,7 +40,6 @@ def handle_reengage(ack, respond, command):
     property_value = " ".join(args[1:])
     respond(f"Searching deals where `{property_name}` = `{property_value}`...")
 
-    # Run in a separate thread so Slack doesn't timeout
     threading.Thread(
         target=process_reengage,
         args=(respond, property_name, property_value),

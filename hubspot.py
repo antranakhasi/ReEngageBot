@@ -37,7 +37,6 @@ def create_task_for_deal(deal, note=None):
     import time
     due_timestamp = int((time.time() + 2*24*60*60) * 1000)
 
-    # Step 1: create the task
     payload = {
         "properties": {
             "hs_task_subject": f"Re-engage {dealname}",
@@ -56,7 +55,6 @@ def create_task_for_deal(deal, note=None):
     task = resp.json()
     task_id = task["id"]
 
-    # Step 2: associate task with deal
     assoc_url = f"https://api.hubapi.com/crm/v3/objects/tasks/{task_id}/associations/deal/{deal_id}/task_to_deal"
     assoc_resp = requests.put(assoc_url, headers=HEADERS)
     assoc_resp.raise_for_status()
