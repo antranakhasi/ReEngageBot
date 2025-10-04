@@ -43,12 +43,15 @@ ReEngageBot/
 
 ```bash
 git clone https://github.com/yourusername/Slack-HubSpot-ReEngage.git
-cd Slack-HubSpot-ReEngage```
+cd Slack-HubSpot-ReEngage
+```
 
 2. Create a virtual environment
-```python3 -m venv venv
+```bash
+python3 -m venv venv
 source venv/bin/activate  # Mac/Linux
-venv\Scripts\activate     # Windows```
+venv\Scripts\activate     # Windows
+```
 
 3. Install dependencies
 ``` pip install -r requirements.txt ```
