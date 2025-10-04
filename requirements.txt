@@ -1,0 +1,11 @@
+certifi==2025.8.3
+charset-normalizer==3.4.3
+dotenv==0.9.9
+idna==3.10
+pyngrok==7.4.0
+python-dotenv==1.1.1
+PyYAML==6.0.3
+requests==2.32.5
+slack_bolt==1.25.0
+slack_sdk==3.36.0
+urllib3==2.5.0
