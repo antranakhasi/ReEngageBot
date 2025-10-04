@@ -28,12 +28,12 @@ If you are a small company or business and your product evolves or new features 
 ## 3. Repository Structure
 
 ReEngageBot/
-├── app.py           # Starts the bot and ngrok tunnel
-├── hubspot.py       # HubSpot API integration (search deals, create tasks)
-├── slack.py         # Slack command handler (/reengage)
-├── config.py        # Loads Slack & HubSpot credentials from environment
-├── requirements.txt # Python dependencies
-└── README.md        # This file
+├── app.py           # Starts the bot and ngrok tunnel<br>
+├── hubspot.py       # HubSpot API integration (search deals, create tasks)<br>
+├── slack.py         # Slack command handler (/reengage) <br>
+├── config.py        # Loads Slack & HubSpot credentials from environment  <br>
+├── requirements.txt # Python dependencies  <br>
+└── README.md        # This file  
 
 ---
 
@@ -47,6 +47,7 @@ cd Slack-HubSpot-ReEngage
 ```
 
 2. Create a virtual environment
+   
 ```bash
 python3 -m venv venv
 source venv/bin/activate  # Mac/Linux
@@ -54,11 +55,15 @@ venv\Scripts\activate     # Windows
 ```
 
 3. Install dependencies
+   
 ``` pip install -r requirements.txt ```
 
-4.	Configure environment variables
+5.	Configure environment variables
 
 Create a .env file or export environment variables:
-```SLACK_BOT_TOKEN=xoxb-your-slack-bot-token
+
+```bash
+SLACK_BOT_TOKEN=xoxb-your-slack-bot-token
 SLACK_SIGNING_SECRET=your-slack-signing-secret
-HUBSPOT_API_KEY=your-hubspot-developer-access-key```
+HUBSPOT_API_KEY=your-hubspot-developer-access-key
+```
