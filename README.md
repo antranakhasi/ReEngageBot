@@ -27,10 +27,10 @@ If you are a small company or business and your product evolves or new features 
 
 ## 3. Repository Structure
 
-ReEngageBot/
-├── app.py           # Starts the bot and ngrok tunnel<br>
-├── hubspot.py       # HubSpot API integration (search deals, create tasks)<br>
-├── slack.py         # Slack command handler (/reengage) <br>
+ReEngageBot/  <br>
+├── app.py           # Starts the bot and ngrok tunnel  <br>
+├── hubspot.py       # HubSpot API integration (search deals, create tasks)  <br>
+├── slack.py         # Slack command handler (/reengage)  <br>
 ├── config.py        # Loads Slack & HubSpot credentials from environment  <br>
 ├── requirements.txt # Python dependencies  <br>
 └── README.md        # This file  
