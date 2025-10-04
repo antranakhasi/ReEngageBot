@@ -1,4 +1,6 @@
 # ReEngageBot
+
+
 ## 1. What It Does
 - Users run `/reengage <property_name> <property_value>` in Slack.
 - The bot searches HubSpot deals where the specified property equals the given value.
@@ -34,7 +36,8 @@ ReEngageBot/
 ├── slack.py         # Slack command handler (/reengage) 
 ├── config.py        # Loads Slack & HubSpot credentials from environment 
 ├── requirements.txt # Python dependencies 
-└── README.md        # This file  ```
+└── README.md        # This file
+```
 
 ---
 
@@ -68,3 +71,83 @@ SLACK_BOT_TOKEN=xoxb-your-slack-bot-token
 SLACK_SIGNING_SECRET=your-slack-signing-secret
 HUBSPOT_API_KEY=your-hubspot-developer-access-key
 ```
+
+---
+
+## 5. Configure Slack
+
+1. Go to Slack API: Your Apps and create a new app.  
+2. Add a Slash Command `/reengage`:  
+   - Request URL: `https://<your-ngrok-or-server-url>/slack/events`  
+   - Method: POST  
+3. Enable Event Subscriptions (optional):  
+   - Request URL: same as above  
+4. Install the app to your workspace.  
+5. Make sure your bot has permissions to post messages in the channels where it will be used.  
+
+---
+
+## 6. Configure HubSpot
+
+1. Go to your HubSpot Developer account and create a new app.  
+2. Note the **Client ID**, **Client Secret**, or generate a **Private App API key**.  
+3. Assign the necessary scopes to the app
+4. Test your key or app credentials with a simple API call to confirm it works.  
+5. The bot will:  
+   - Search deals by a specific property and value.  
+   - Create a task for each deal owner.  
+   - Associate tasks back to the original deal.
+
+---
+
+## 7. Run Locally
+
+1. Activate your virtual environment if not already active:
+
+```bash
+source venv/bin/activate  # Mac/Linux
+venv\Scripts\activate     # Windows
+```
+
+2.	Start the bot:
+
+```bash
+python app.py
+```
+
+3. 	If using ngrok, the script will print a public URL. Set this URL in Slack as your Request URL.
+
+4. 	Test the Slack command in your workspace:
+
+`/reengage <property_name> <property_value>`
+
+Example: `/reengage product_interest "New Feature A"`
+
+---
+
+## 8. Usage
+
+- Slack users can re-engage deals in HubSpot by running the `/reengage` command.  
+- Supports multi-word property values.  
+- Responses in Slack include:  
+  - Number of tasks created.  
+  - Errors (if any deals have no owner or fail to create a task).  
+
+---
+
+## 9. Deployment
+
+- For production, deploy on a server (e.g., Heroku, AWS, Google Cloud) instead of ngrok.  
+- Set environment variables on your deployment platform.  
+- Ensure HTTPS endpoint for Slack commands (Slack requires a secure URL).  
+- The bot will continue to create tasks for HubSpot deals without manual intervention.  
+
+---
+
+## 10. Troubleshooting
+
+- `401 Unauthorized`: Check your HubSpot API key or Private App key and scopes.  
+- No tasks created: Ensure the deals have a valid owner (`hubspot_owner_id`).  
+- Multi-word property values not working: Always wrap them in quotes in Slack, e.g., `"New Feature A"`.  
+- ngrok issues: Ensure your ngrok account is verified and authtoken installed.  
+- Errors in Slack logs: Review your terminal where `app.py` is running for Python exceptions.  
